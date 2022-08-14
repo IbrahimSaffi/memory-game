@@ -6,11 +6,15 @@
 body {
     padding-left: 10vw;
     padding-right: 10vw;
+    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
+    min-height: 95vh;
     text-align: center;
+    background-image: url(./bgPattern.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .status {
     display: flex;
@@ -38,22 +42,49 @@ body {
     height: 20%;
 }
 .box {
-    width: 20%;
     height: 100%;
-    background-color: black;
     gap: 5%;
+    width: 20%;
+    background-color:#08302e ;
     border-radius: 10px;
-    /* position: relative; */
 }
+.icon {
+    background-color:  #52d67f;
+    box-shadow: 1px 1px 5px 1px black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+
+}
+.visibile{
+    transform: rotateX(0deg);
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-property: linear;
+}
+
 button {
     background-color: darkgreen;
     color: white;
     padding: 10px;
     border-radius: 10px;
     width: 70px;
+    border: none;
 }
+button:hover{
+    filter: brightness(70%);
+}
+
 svg {
    width: 100%;
    position: relative;
    height: 100%;
+}
+.game-status{
+    font-weight: bolder;
+    text-transform: capitalize;
+    margin-top: 40%;
 }

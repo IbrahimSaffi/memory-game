@@ -1,24 +1,17 @@
 import Box from "./Box"
-function Card() {
-    let setS
-    let items = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]
-    let totalItems = 16
-    let rows = []
-    for (let i = 0; i < 4; i++) {
-        let row = []
-        for (let j = 0; j < 4; j++) {
-           let itemToDisplay = Math.floor(Math.random()*totalItems)
-           console.log(items[itemToDisplay],items)
-           row.push(<Box svgNo={items[itemToDisplay]} />)
-           items.splice(itemToDisplay,1)
-           totalItems--
-        }
-        rows.push(<div className="row" >{row}</div>)
-        //I think Use Effect can be used to re-render cards.
-    }
+function Card(props) {
     return (
         <div className="card" >
-            {rows}
+            {props.gameStatus==="Started"?
+            props.items.map((row,i)=>{
+              return <div className="row" >
+                {row.map((item,j)=>{
+                   return <Box
+                   clickable ={props.clickable}
+                     items={props.items} scoreArr={props.scoreArr} key={`${i},${j}`} index ={[i,j]} visibile ={props.visibile} svgNo={props.items[i][j]} />
+                })}
+              </div>
+            }):(props.gameStatus==="Not Started")?<div className="game-status">click start button to start game</div>:<div className="game-status">You have finished the game in moves and time <br/>click restart button to play again</div>}
         </div>
     )
 }
