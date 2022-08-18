@@ -21,6 +21,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 50px;
+    align-items: center;
 }
 .card {
     display: flex;
@@ -86,5 +87,19 @@ svg {
 .game-status{
     font-weight: bolder;
     text-transform: capitalize;
-    margin-top: 40%;
+    margin-top: 50%;
+}
+@media only screen and (max-width:480px) {
+    body{
+   padding-left: 5vw;
+   padding-right: 5vw;
+    }
+    .card{
+        margin-left: 0;
+        margin-right: 0;;
+    }
+    .status {
+        font-size: small;
+    }
+
 }
